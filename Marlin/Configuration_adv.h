@@ -888,7 +888,7 @@
 // Multi-Z steppers
 //
 #ifdef Z2_DRIVER_TYPE
-  #define INVERT_Z2_VS_Z_DIR        // Z2 direction signal is the opposite of Z
+  #define INVERT_Z2_VS_Z_DIR        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 Z2 direction signal is the opposite of Z
 
   //#define Z_MULTI_ENDSTOPS          // Other Z axes have their own endstops
   #if ENABLED(Z_MULTI_ENDSTOPS)
@@ -896,14 +896,14 @@
     #define Z2_ENDSTOP_ADJUSTMENT 0   // Z2 offset relative to Z endstop
   #endif
   #ifdef Z3_DRIVER_TYPE
-    //#define INVERT_Z3_VS_Z_DIR      // Z3 direction signal is the opposite of Z
+    //#define INVERT_Z3_VS_Z_DIR      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Z3 direction signal is the opposite of Z
     #if ENABLED(Z_MULTI_ENDSTOPS)
-      //#define Z3_STOP_PIN Y_MAX_PIN // Z3 endstop pin override
+      #define Z3_STOP_PIN Y_MAX_PIN // Z3 endstop pin override
       #define Z3_ENDSTOP_ADJUSTMENT 0 // Z3 offset relative to Z endstop
     #endif
   #endif
   #ifdef Z4_DRIVER_TYPE
-    #define INVERT_Z4_VS_Z_DIR      // Z4 direction signal is the opposite of Z
+    #define INVERT_Z4_VS_Z_DIR      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Z4 direction signal is the opposite of Z
     #if ENABLED(Z_MULTI_ENDSTOPS)
       //#define Z4_STOP_PIN Z_MAX_PIN // Z4 endstop pin override
       #define Z4_ENDSTOP_ADJUSTMENT 0 // Z4 offset relative to Z endstop
