@@ -1153,6 +1153,22 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
         case 3426: M3426(); break;                                // M3426: Read MCP3426 ADC (over i2c)
       #endif
 
+      case 1105: {  // M1105
+        // چاپ پیام توی سریال پورت
+        SERIAL_ECHOLNPGM("Running M1105: Starting G28 and G1 X100 F2000");
+      
+        // اجرای G28 (هومینگ)
+        gcode.process_subcommands_now(F("G28"));
+        SERIAL_ECHOLNPGM("G28 Completed");
+      
+        // اجرای G1 X100 F2000 (حرکت محور X)
+        gcode.process_subcommands_now(F("G1 X100 F2000"));
+        SERIAL_ECHOLNPGM("G1 X100 F2000 Completed");
+      
+        // به‌روزرسانی موقعیت
+
+      } break;
+
       default: parser.unknown_command_warning(); break;
     }
     break;
