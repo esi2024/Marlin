@@ -1168,6 +1168,30 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
         // به‌روزرسانی موقعیت
 
       } break;
+case 1101: // M1101 HE1, HE2, HE3 Steuerung (M1101 S0(S1) H1(H2)(H3))
+  if (parser.seen('S')) {
+    int s_value = parser.value_byte();
+    bool state = (s_value > 0);
+
+    if (parser.seen('H')) {
+      int heater = parser.value_int();
+
+      switch (heater) {
+        case 1: // H1 -> HEATER_1_PIN
+          digitalWrite(HEATER_1_PIN, state ? HIGH : LOW);
+          break;
+
+        case 2: // H2 -> HEATER_2_PIN
+          digitalWrite(HEATER_2_PIN, state ? HIGH : LOW);
+          break;
+
+        case 3: // H3 -> HEATER_3_PIN
+          digitalWrite(HEATER_3_PIN, state ? HIGH : LOW);
+          break;
+      }
+    }
+  }
+  break;
 
       default: parser.unknown_command_warning(); break;
     }
