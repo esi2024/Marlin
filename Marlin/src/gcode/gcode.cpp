@@ -1153,21 +1153,6 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
         case 3426: M3426(); break;                                // M3426: Read MCP3426 ADC (over i2c)
       #endif
 
-      case 1105: {  // M1105
-        // چاپ پیام توی سریال پورت
-        SERIAL_ECHOLNPGM("Running M1105: Starting G28 and G1 X100 F2000");
-      
-        // اجرای G28 (هومینگ)
-        gcode.process_subcommands_now(F("G28"));
-        SERIAL_ECHOLNPGM("G28 Completed");
-      
-        // اجرای G1 X100 F2000 (حرکت محور X)
-        gcode.process_subcommands_now(F("G1 X100 F2000"));
-        SERIAL_ECHOLNPGM("G1 X100 F2000 Completed");
-      
-        // به‌روزرسانی موقعیت
-
-      } break;
 case 1101: // M1101 HE1, HE2, HE3 Steuerung (M1101 S0(S1) H1(H2)(H3))
   if (parser.seen('S')) {
     int s_value = parser.value_byte();
@@ -1190,6 +1175,34 @@ case 1101: // M1101 HE1, HE2, HE3 Steuerung (M1101 S0(S1) H1(H2)(H3))
           break;
       }
     }
+  }
+  break;
+  case 1103: {  // M1103 Position des SMT-Feeder
+
+    gcode.process_subcommands_now(F("G1 X251.50 Y314.40 F300"));
+
+    
+  }
+  break;
+  case 1104: {  // M1104  SMT-Feeder_NEXT
+
+    gcode.process_subcommands_now(F("M118 P2 NEXT"));
+
+    
+  }
+  break;
+  case 1105: {  // M1105  SMT-Feeder_BACK
+
+    gcode.process_subcommands_now(F("M118 P2 BACK"));
+
+    
+  }
+  break;
+  case 1106: {  // M1106  SMT-Feeder_REFRENCE
+
+    gcode.process_subcommands_now(F("M118 P2 REFRENCE"));
+
+    
   }
   break;
 
