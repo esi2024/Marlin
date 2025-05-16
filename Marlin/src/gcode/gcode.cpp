@@ -1179,7 +1179,7 @@ case 1101: // M1101 HE1, HE2, HE3 Steuerung (M1101 S0(S1) H1(H2)(H3))
   break;
   case 1103: {  // M1103 Position des SMT-Feeder
 
-    gcode.process_subcommands_now(F("G1 X251.50 Y314.40 F300"));
+    gcode.process_subcommands_now(F("G1 X251.50 Y314.40 F10000"));
 
     
   }
@@ -1205,6 +1205,21 @@ case 1101: // M1101 HE1, HE2, HE3 Steuerung (M1101 S0(S1) H1(H2)(H3))
     
   }
   break;
+
+  case 1110: // M1110 check the doorr sensor
+
+    if (digitalRead(PG15) == HIGH) { 
+
+      SERIAL_ECHOLNPGM("Input HIGH"); 
+    } 
+
+    else { 
+
+      SERIAL_ECHOLNPGM("Input LOW"); 
+
+    } 
+
+    break; 
 
       default: parser.unknown_command_warning(); break;
     }
