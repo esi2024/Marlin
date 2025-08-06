@@ -1666,10 +1666,10 @@
 
 // X and Y axis travel speed between probes.
 // Leave undefined to use the average of the current XY homing feedrate.
-#define XY_PROBE_FEEDRATE    (133*60) // (mm/min)
+#define XY_PROBE_FEEDRATE    (200*60) // (mm/min)
 
 // Feedrate for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST  (4*60) // (mm/min)
+#define Z_PROBE_FEEDRATE_FAST  (8*60) // (mm/min)
 
 // Feedrate for the "accurate" probe of each point
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2) // (mm/min)
@@ -1737,11 +1737,11 @@
  * Example: 'M851 Z-5' with a CLEARANCE of 4  =>  9mm from bed to nozzle.
  *     But: 'M851 Z+1' with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
-#define Z_CLEARANCE_DEPLOY_PROBE   12.5// (mm) Z Clearance for Deploy/Stow
-#define Z_CLEARANCE_BETWEEN_PROBES 12.5 // (mm) Z Clearance between probe points
-#define Z_CLEARANCE_MULTI_PROBE    12.5 // (mm) Z Clearance between multiple probes
+#define Z_CLEARANCE_DEPLOY_PROBE   15// (mm) Z Clearance for Deploy/Stow
+#define Z_CLEARANCE_BETWEEN_PROBES 15 // (mm) Z Clearance between probe points
+#define Z_CLEARANCE_MULTI_PROBE    15 // (mm) Z Clearance between multiple probes
 #define Z_PROBE_ERROR_TOLERANCE     0.1 // (mm) Tolerance for early trigger (<= -probe.offset.z + ZPET)
-#define Z_AFTER_PROBING            12.5 // (mm) Z position after probing is done
+#define Z_AFTER_PROBING            15// (mm) Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -30 // (mm) Farthest distance below the trigger-point to go before stopping
 
@@ -1861,7 +1861,7 @@
 //#define Z_CLEARANCE_FOR_HOMING  4   // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                       // You'll need this much clearance above Z_MAX_POS to avoid grinding.
 
-#define Z_AFTER_HOMING         8   // (mm) Height to move to after homing (if Z was homed)
+#define Z_AFTER_HOMING         12   // (mm) Height to move to after homing (if Z was homed)
 //#define XY_AFTER_HOMING { 10, 10 }  // (mm) Move to an XY position after homing (and raising Z)
 
 //#define EVENT_GCODE_AFTER_HOMING "M300 P440 S200"  // Commands to run after G28 (and move to XY_AFTER_HOMING)
